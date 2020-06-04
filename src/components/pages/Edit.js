@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../ui/Header";
 import Navigation from "../ui/Navigation";
 import saveIcon from "../../icons/save.svg";
+import { Link } from "react-router-dom";
 
 export default function Edit() {
    return (
@@ -20,12 +21,12 @@ export default function Edit() {
                            <textarea
                               rows="11"
                               className="d-sm-none"
-                              autofocus="autofocus"
+                              autoFocus={true}
                            ></textarea>
                            <textarea
                               rows="6"
                               className="d-none d-sm-block"
-                              autofocus="autofocus"
+                              autoFocus={true}
                            ></textarea>
                         </div>
                      </div>
@@ -51,8 +52,8 @@ export default function Edit() {
                   >
                      Discard changes
                   </a>
-                  <a
-                     href="all-cards.html"
+                  <Link
+                     to="/all-cards"
                      className="btn btn-primary btn-lg float-right"
                   >
                      <img
@@ -63,7 +64,7 @@ export default function Edit() {
                         alt=""
                      />
                      Save
-                  </a>
+                  </Link>
                   <div className="text-center text-muted my-6">
                      <h4>Card properties</h4>
                   </div>
@@ -115,13 +116,12 @@ export default function Edit() {
                      </div>
                   </div>
                   <div className="row col mb-4">
-                     <Link
+                     <button
                         className="btn btn-large btn-outline-danger invisible"
                         id="card-delete"
-                        to="all-cards"
                      >
                         Delete this card
-                     </Link>
+                     </button>
                   </div>
                </div>
             </div>
