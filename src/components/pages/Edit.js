@@ -115,13 +115,13 @@ export default function Edit() {
                      </div>
                   </div>
                   <div className="row col mb-4">
-                     <a
+                     <Link
                         className="btn btn-large btn-outline-danger invisible"
                         id="card-delete"
-                        href="all-cards.html"
+                        to="all-cards"
                      >
                         Delete this card
-                     </a>
+                     </Link>
                   </div>
                </div>
             </div>
