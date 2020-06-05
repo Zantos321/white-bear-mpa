@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../ui/Header";
-import Navigation from "../ui/Navigation";
 import AppTemplate from "../ui/AppTemplate";
 import editIcon from "../../icons/edit.svg";
 import { Link } from "react-router-dom";
@@ -8,8 +6,6 @@ import { Link } from "react-router-dom";
 export default function AllCards() {
    return (
       <AppTemplate>
-         <Header />
-         <Navigation />
          <form className="row d-flex mt-5">
             <div className="form-group col-8">
                <input

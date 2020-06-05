@@ -1,15 +1,10 @@
 import React from "react";
-import Header from "../ui/Header";
-import Navigation from "../ui/Navigation";
 import { Link } from "react-router-dom";
 import constellationLogo from "../../img/logo-landing.png";
 
 export default function Landing() {
    return (
       <div className="landing-background">
-         <Header />
-         <Navigation />
-
          <div className="container-fluid">
             <div className="row mb-8 pt-7 ml-2 justify-content-left">
                <div className="header">
@@ -39,94 +34,92 @@ export default function Landing() {
                            >
                               Sign up
                            </button>
-                           <div className="collapse" id="signup-collapse">
-                              <p className="signup-text mb-4">
-                                 Lets get you signed up.
-                              </p>
-                              <div className="form-group">
-                                 <label className="input-text" htmlFor="email">
-                                    Email address
-                                 </label>
-                                 <input
-                                    type="email"
-                                    className="form-control"
-                                    id="signupEmail"
-                                    aria-describedby="email-help"
-                                 />
-                                 <div
-                                    className="alert alert-danger d-none"
-                                    role="alert"
-                                    id="signupEmailAlert"
-                                 >
-                                    Please enter your email address.
-                                 </div>
-                                 <div
-                                    className="alert alert-danger d-none"
-                                    role="alert"
-                                    id="passwordMatchesEmailAlert"
-                                 >
-                                    Your email address cannot be used in you
-                                    password.
-                                 </div>
-                                 <div
-                                    className="alert alert-danger d-none"
-                                    role="alert"
-                                    id="garbageEmailAlert"
-                                 >
-                                    Please enter an email that has more than
-                                    three unique characters.
-                                 </div>
-                                 <div
-                                    className="alert alert-danger d-none"
-                                    role="alert"
-                                    id="validEmailAlert"
-                                 >
-                                    Please enter a valid email address.
-                                 </div>
-                              </div>
-                              <div className="form-group">
-                                 <label
-                                    className="input-text"
-                                    htmlFor="password"
-                                 >
-                                    Create a password
-                                 </label>
-                                 <input
-                                    type="password"
-                                    className="form-control"
-                                    id="signupPassword"
-                                 />
-                                 <div
-                                    className="alert alert-danger d-none"
-                                    role="alert"
-                                    id="signupPasswordAlert"
-                                 >
-                                    Please create a 9 character password.
-                                 </div>
-                                 <div
-                                    className="alert alert-danger d-none"
-                                    role="alert"
-                                    id="passwordMatchesEmailAlert"
-                                 >
-                                    Your password cannot match your email.
-                                 </div>
-                                 <div
-                                    className="alert alert-danger d-none"
-                                    role="alert"
-                                    id="commonPasswordAlert"
-                                 >
-                                    Your password is too common, try again.
-                                 </div>
-                              </div>
-                              <button
-                                 id="signupVerify"
-                                 type="button"
-                                 className="btn btn-success btn-landing btn-block mt-5"
+                           {/* <div className="collapse" id="signup-collapse"> */}
+                           <p className="signup-text mb-4">
+                              Lets get you signed up.
+                           </p>
+                           <div className="form-group">
+                              <label className="input-text" htmlFor="email">
+                                 Email address
+                              </label>
+                              <input
+                                 type="email"
+                                 className="form-control"
+                                 id="signupEmail"
+                                 aria-describedby="email-help"
+                              />
+                              <div
+                                 className="alert alert-danger d-none"
+                                 role="alert"
+                                 id="signupEmailAlert"
                               >
-                                 Lets go!
-                              </button>
+                                 Please enter your email address.
+                              </div>
+                              <div
+                                 className="alert alert-danger d-none"
+                                 role="alert"
+                                 id="passwordMatchesEmailAlert"
+                              >
+                                 Your email address cannot be used in you
+                                 password.
+                              </div>
+                              <div
+                                 className="alert alert-danger d-none"
+                                 role="alert"
+                                 id="garbageEmailAlert"
+                              >
+                                 Please enter an email that has more than three
+                                 unique characters.
+                              </div>
+                              <div
+                                 className="alert alert-danger d-none"
+                                 role="alert"
+                                 id="validEmailAlert"
+                              >
+                                 Please enter a valid email address.
+                              </div>
                            </div>
+                           <div className="form-group">
+                              <label className="input-text" htmlFor="password">
+                                 Create a password
+                              </label>
+                              <input
+                                 type="password"
+                                 className="form-control"
+                                 id="signupPassword"
+                              />
+                              <div
+                                 className="alert alert-danger d-none"
+                                 role="alert"
+                                 id="signupPasswordAlert"
+                              >
+                                 Please create a 9 character password.
+                              </div>
+                              <div
+                                 className="alert alert-danger d-none"
+                                 role="alert"
+                                 id="passwordMatchesEmailAlert"
+                              >
+                                 Your password cannot match your email.
+                              </div>
+                              <div
+                                 className="alert alert-danger d-none"
+                                 role="alert"
+                                 id="commonPasswordAlert"
+                              >
+                                 Your password is too common, try again.
+                              </div>
+                           </div>
+                           <Link
+                              to="/create-answer"
+                              id="signupVerify"
+                              type="button"
+                              className="btn btn-success btn-landing btn-block mt-5"
+                           >
+                              Lets go!
+                           </Link>
                         </div>
+                        {/* </div> */}
                      </div>
                   </div>
                </div>

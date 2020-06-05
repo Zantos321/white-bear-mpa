@@ -1,14 +1,10 @@
 import React from "react";
-import Header from "../ui/Header";
-import Navigation from "../ui/Navigation";
 import AppTemplate from "../ui/AppTemplate";
 import { Link } from "react-router-dom";
 
 export default function CreateAnswer() {
    return (
       <AppTemplate>
-         <Header />
-         <Navigation />
          <div className="text-center text-muted my-4">
             <h4>Add an answer</h4>
          </div>
@@ -41,7 +37,7 @@ export default function CreateAnswer() {
          <div className="float-right mb-4">
             <Link
                id="nextButton"
-               className="btn btn-lg btn-outline-primary disabled"
+               className="btn btn-lg btn-outline-primary " //disabled removed
                role="button"
                to="/create-imagery"
             >

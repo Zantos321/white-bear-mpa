@@ -1,16 +1,11 @@
 import React from "react";
 import saveIcon from "../../icons/save.svg";
-import Header from "../ui/Header";
-import Navigation from "../ui/Navigation";
 import AppTemplate from "../ui/AppTemplate";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function CreateImagery() {
    return (
       <AppTemplate>
-         <Header />
-         <Navigation />
-
          <div className="text-center text-muted my-4">
             <h4>Add memorable imagery</h4>
          </div>
@@ -50,11 +45,12 @@ export default function CreateImagery() {
          </div>
          <div className="clearfix"></div>
 
-         <button href="#" className="btn btn-link" id="save-error">
+         <Link to="/create-answer" className="btn btn-link" id="save-error">
             Back to answer
-         </button>
-         <button
-            className="btn btn-primary btn-lg float-right mb-4 disabled"
+         </Link>
+         <Link
+            to="/create-answer"
+            className="btn btn-primary btn-lg float-right mb-4 " // diabled removed
             id="save-imagery"
          >
             <img
@@ -65,7 +61,7 @@ export default function CreateImagery() {
                alt=""
             />
             Save
-         </button>
+         </Link>
       </AppTemplate>
    );
 }

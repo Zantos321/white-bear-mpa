@@ -22,36 +22,66 @@ export default function Edit() {
                               rows="11"
                               className="d-sm-none"
                               autoFocus={true}
-                           ></textarea>
+                           >
+                              One morning, when Gregor Samsa woke from troubled
+                              dreams, he found himself transformed in his bed
+                              into a horrible vermin. He lay on his armour-like
+                              back, and if he lifted his head a little he could
+                              see his brown belly, slightly domed and divided by
+                              arches into stiff sections.
+                           </textarea>
                            <textarea
                               rows="6"
                               className="d-none d-sm-block"
                               autoFocus={true}
-                           ></textarea>
+                           >
+                              One morning, when Gregor Samsa woke from troubled
+                              dreams, he found himself transformed in his bed
+                              into a horrible vermin. He lay on his armour-like
+                              back, and if he lifted his head a little he could
+                              see his brown belly, slightly domed and divided by
+                              arches into stiff sections.
+                           </textarea>
                         </div>
                      </div>
 
                      <div className="card bg-secondary">
                         <div className="card-body">
-                           One morning, when Gregor Samsa woke from troubled
-                           dreams, he found himself transformed in his bed into
-                           a horrible vermin. He lay on his armour-like back,
-                           and if he lifted his head a little he could see his
-                           brown belly, slightly domed and divided by arches
-                           into stiff sections.
+                           <textarea
+                              rows="11"
+                              className="d-sm-none"
+                              autoFocus={true}
+                           >
+                              One morning, when Gregor Samsa woke from troubled
+                              dreams, he found himself transformed in his bed
+                              into a horrible vermin. He lay on his armour-like
+                              back, and if he lifted his head a little he could
+                              see his brown belly, slightly domed and divided by
+                              arches into stiff sections.
+                           </textarea>
+                           <textarea
+                              rows="6"
+                              className="d-none d-sm-block"
+                              autoFocus={true}
+                           >
+                              One morning, when Gregor Samsa woke from troubled
+                              dreams, he found himself transformed in his bed
+                              into a horrible vermin. He lay on his armour-like
+                              back, and if he lifted his head a little he could
+                              see his brown belly, slightly domed and divided by
+                              arches into stiff sections.
+                           </textarea>
                         </div>
                      </div>
                   </div>
-
-                  <p className="float-right mb-5">0/240</p>
+                  <div className="row float-right mb-5">
+                     <p className="text-muted mr-4">Top: 0/240</p>
+                     <p className="text-muted mr-4">Bottom: 0/240</p>
+                  </div>
                   <div className="clearfix"></div>
-                  <a
-                     href="all-cards.html"
-                     className="btn btn-link"
-                     role="button"
-                  >
+                  <Link to="/all-cards" className="btn btn-link" role="button">
                      Discard changes
-                  </a>
+                  </Link>
                   <Link
                      to="/all-cards"
                      className="btn btn-primary btn-lg float-right"
@@ -101,7 +131,7 @@ export default function Edit() {
                      </div>
                   </div>
                   <div className="row col mb-4">
-                     <div className="custom-control custom-checkbox text-muted">
+                     <div className="custom-control custom-checkbox ">
                         <input
                            type="checkbox"
                            className="custom-control-input delete-verify"
@@ -116,12 +146,13 @@ export default function Edit() {
                      </div>
                   </div>
                   <div className="row col mb-4">
-                     <button
-                        className="btn btn-large btn-outline-danger invisible"
+                     <Link
+                        to="/all-cards"
+                        className="btn btn-large btn-outline-danger " //removed invisible
                         id="card-delete"
                      >
                         Delete this card
-                     </button>
+                     </Link>
                   </div>
                </div>
             </div>

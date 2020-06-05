@@ -1,17 +1,12 @@
 import React from "react";
 import thumbsUpIcon from "../../icons/thumbs-up.svg";
-import Header from "../ui/Header";
-import Navigation from "../ui/Navigation";
 import AppTemplate from "../ui/AppTemplate";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function ReviewAnswer() {
    return (
       <AppTemplate>
-         <Header />
-         <Navigation />
          <div className="mb-5"></div>
-
          <div className="mb-5">
             <div className="card bg-primary">
                <div className="card-body">
@@ -34,13 +29,13 @@ export default function ReviewAnswer() {
             </div>
          </div>
 
-         <a href="edit.html" className="btn btn-link btn-landing" role="button">
+         <Link to="/edit" className="btn btn-link btn-landing" role="button">
             Edit
-         </a>
+         </Link>
          <div className="float-right">
-            <button href="#" className="btn btn-outline-primary mr-4">
+            <Link to="/review-empty" className="btn btn-outline-primary mr-4">
                Needs Work
-            </button>
+            </Link>
             <a
                href="review-empty.html"
                className="btn btn-primary"

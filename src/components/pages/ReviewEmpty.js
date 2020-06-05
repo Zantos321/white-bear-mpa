@@ -1,20 +1,20 @@
 import React from "react";
-import Header from "../ui/Header";
-import Navigation from "../ui/Navigation";
 import AppTemplate from "../ui/AppTemplate";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function ReviewEmpty() {
    return (
       <AppTemplate>
-         <Header />
-         <Navigation />
          <div className="text-center text-muted my-4">
-            <h4>Edit card</h4>
+            <h4>Out of cards</h4>
          </div>
-         <button className="btn btn-link mb-4">Previous card</button>
+         <Link to="/review-answer" className="btn btn-link mb-4">
+            Previous card
+         </Link>
          <div className="float-right">
-            <button className="btn btn-outline-primary">Get more cards</button>
+            <Link to="/review-imagery" className="btn btn-outline-primary">
+               Get more cards
+            </Link>
          </div>
       </AppTemplate>
    );
