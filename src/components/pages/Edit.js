@@ -109,7 +109,7 @@ export default function Edit() {
                         />
                         <label
                            className="custom-control-label delete-verify"
-                           for="delete-check"
+                           htmlFor="delete-check"
                         >
                            Show delete button
                         </label>
