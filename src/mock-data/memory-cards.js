@@ -13,7 +13,7 @@ const memoryCards = [
    {
       id: "5dc20585-a268-4025-840a-a7cd618f5b20",
       imagery: "March 14th is pie day.",
-      answer: "The valie of PI is 3.14",
+      answer: "The value of PI is 3.14",
       userId: "52b5c81c-f378-4a90-9614-1702a1b0e205",
       createdAt: 1591740443,
       nextAttemptAt: 1591741860,
@@ -91,3 +91,5 @@ const memoryCards = [
       level: 1,
    },
 ];
+
+export default memoryCards;

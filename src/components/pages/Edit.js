@@ -3,6 +3,8 @@ import Header from "../ui/Header";
 import Navigation from "../ui/Navigation";
 import saveIcon from "../../icons/save.svg";
 import { Link } from "react-router-dom";
+import memoryCards from "../../mock-data/memory-cards";
+const memoryCard = memoryCards[2];
 
 export default function Edit() {
    return (
@@ -22,26 +24,14 @@ export default function Edit() {
                               rows="11"
                               className="d-sm-none"
                               autoFocus={true}
-                           >
-                              One morning, when Gregor Samsa woke from troubled
-                              dreams, he found himself transformed in his bed
-                              into a horrible vermin. He lay on his armour-like
-                              back, and if he lifted his head a little he could
-                              see his brown belly, slightly domed and divided by
-                              arches into stiff sections.
-                           </textarea>
+                              defaultValue={memoryCard.imagery}
+                           ></textarea>
                            <textarea
                               rows="6"
                               className="d-none d-sm-block"
                               autoFocus={true}
-                           >
-                              One morning, when Gregor Samsa woke from troubled
-                              dreams, he found himself transformed in his bed
-                              into a horrible vermin. He lay on his armour-like
-                              back, and if he lifted his head a little he could
-                              see his brown belly, slightly domed and divided by
-                              arches into stiff sections.
-                           </textarea>
+                              defaultValue={memoryCard.imagery}
+                           ></textarea>
                         </div>
                      </div>
 
@@ -51,26 +41,14 @@ export default function Edit() {
                               rows="11"
                               className="d-sm-none"
                               autoFocus={true}
-                           >
-                              One morning, when Gregor Samsa woke from troubled
-                              dreams, he found himself transformed in his bed
-                              into a horrible vermin. He lay on his armour-like
-                              back, and if he lifted his head a little he could
-                              see his brown belly, slightly domed and divided by
-                              arches into stiff sections.
-                           </textarea>
+                              defaultValue={memoryCard.answer}
+                           ></textarea>
                            <textarea
                               rows="6"
                               className="d-none d-sm-block"
                               autoFocus={true}
-                           >
-                              One morning, when Gregor Samsa woke from troubled
-                              dreams, he found himself transformed in his bed
-                              into a horrible vermin. He lay on his armour-like
-                              back, and if he lifted his head a little he could
-                              see his brown belly, slightly domed and divided by
-                              arches into stiff sections.
-                           </textarea>
+                              defaultValue={memoryCard.answer}
+                           ></textarea>
                         </div>
                      </div>
                   </div>
@@ -103,7 +81,7 @@ export default function Edit() {
                         <p className="text-muted">Created on:</p>
                      </div>
                      <div className="col-8">
-                        <p>Dec. 24, 2019</p>
+                        <p>{memoryCard.createdAt}</p>
                      </div>
                   </div>
                   <div className="row mb-2">
@@ -111,7 +89,7 @@ export default function Edit() {
                         <p className="text-muted">Last attempt:</p>
                      </div>
                      <div className="col-8">
-                        <p>Dec. 31, 2019</p>
+                        <p>{memoryCard.lastAttemptAt}</p>
                      </div>
                   </div>
                   <div className="row mb-2">
@@ -119,7 +97,7 @@ export default function Edit() {
                         <p className="text-muted">Next attempt:</p>
                      </div>
                      <div className="col-8">
-                        <p>Jul. 14, 2020</p>
+                        <p>{memoryCard.nextAttemptAt}</p>
                      </div>
                   </div>
                   <div className="row mb-4">
@@ -127,7 +105,7 @@ export default function Edit() {
                         <p className="text-muted">Consecutives:</p>
                      </div>
                      <div className="col-8">
-                        <p>4</p>
+                        <p>{memoryCard.level}</p>
                      </div>
                   </div>
                   <div className="row col mb-4">
