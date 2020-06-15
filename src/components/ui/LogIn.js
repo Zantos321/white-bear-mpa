@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
 
@@ -134,7 +134,7 @@ export default class LogIn extends React.Component {
                            </div>
                         )}
                      </div>
-                     <button
+                     <Link
                         to="/create-answer"
                         id="#loginVerify"
                         className="btn btn-success btn-lg btn-landing float-right"
@@ -143,7 +143,7 @@ export default class LogIn extends React.Component {
                         }}
                      >
                         Log in
-                     </button>
+                     </Link>
                   </div>
                </div>
             </div>
