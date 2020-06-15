@@ -58,7 +58,6 @@ export default class SignUp extends React.Component {
       // must have at least 3 unique characters
 
       const uniqChars = [...new Set(passwordInput)];
-      console.log(passwordInput);
       if (passwordInput === "") {
          this.setState({
             passwordError: "Please create a password.",

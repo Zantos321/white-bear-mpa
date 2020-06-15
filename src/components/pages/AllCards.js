@@ -36,8 +36,8 @@ export default function AllCards() {
                <select className="form-control" id="exampleFormControlSelect1">
                   <option>Most Recent</option>
                   <option>Oldest</option>
-                  <option>Hardest</option>
-                  <option>Easiest</option>
+                  {/* <option>Hardest</option>
+                  <option>Easiest</option> */}
                </select>
             </div>
          </form>

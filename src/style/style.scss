@@ -162,3 +162,8 @@ textarea {
 .delete-verify {
    cursor: pointer;
 }
+
+.disabled {
+   pointer-events: fill !important;
+   cursor: not-allowed;
+}
