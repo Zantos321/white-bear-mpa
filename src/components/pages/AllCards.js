@@ -2,13 +2,49 @@ import React from "react";
 import AppTemplate from "../ui/AppTemplate";
 import MemoryCard from "../ui/MemoryCard";
 import memoryCards from "../../mock-data/memory-cards";
+import orderBy from "lodash/orderBy";
 
 export default class AllCards extends React.Component {
    constructor(props) {
-      super();
+      super(props);
       this.state = {
-         isResultDisplayed: false,
+         order: '[["createdAt"], ["desc"]]',
+         displayedMemoryCards: orderBy(memoryCards, ["createdAt"], ["desc"]),
+         allMemoryCards: orderBy(memoryCards, ["createdAt"], ["desc"]),
       };
+   }
+
+   filterByInput() {
+      const input = document.getElementById("search-input").value;
+      const lowerCasedInput = input.toLowerCase();
+      const copyOfAllMemoryCards = [...this.state.allMemoryCards];
+      const filteredMemoryCards = copyOfAllMemoryCards.filter((memoryCard) => {
+         const lowerCasedImagery = memoryCard.imagery.toLowerCase();
+         const lowerCasedAnswer = memoryCard.answer.toLowerCase();
+         if (
+            lowerCasedImagery.includes(lowerCasedInput) ||
+            lowerCasedAnswer.includes(lowerCasedInput)
+         ) {
+            return true;
+         } else return false;
+      });
+      this.setState({ displayedMemoryCards: filteredMemoryCards }, () => {
+         this.setMemoryCards();
+      });
+   }
+
+   setOrder(e) {
+      const newOrder = e.target.value;
+      this.setState({ order: newOrder }, () => {
+         this.setMemoryCards();
+      });
+   }
+
+   setMemoryCards() {
+      const copyOfDisplayedMemoryCards = [...this.state.displayedMemoryCards];
+      const toJson = JSON.parse(this.state.order);
+      const orderedMemoryCards = orderBy(copyOfDisplayedMemoryCards, ...toJson);
+      this.setState({ displayedMemoryCards: orderedMemoryCards });
    }
 
    render() {
@@ -17,7 +53,7 @@ export default class AllCards extends React.Component {
             <form className="row d-flex mt-5">
                <div className="form-group col-8">
                   <input
-                     id="allCardsSearchText"
+                     id="search-input"
                      className="form-control"
                      type="text"
                      placeholder="Search for a word"
@@ -29,6 +65,7 @@ export default class AllCards extends React.Component {
                      id="allCardsSearchButton"
                      className="btn btn-primary btn-sm btn-block"
                      type="button"
+                     onClick={() => this.filterByInput()}
                   >
                      Search
                   </button>
@@ -42,17 +79,24 @@ export default class AllCards extends React.Component {
                </div>
                <div className="form-group col-8">
                   <select
+                     value={this.state.order}
                      className="form-control"
-                     id="exampleFormControlSelect1"
+                     onChange={(e) => this.setOrder(e)}
                   >
-                     <option>Most Recent</option>
-                     <option>Oldest</option>
-                     {/* <option>Hardest</option>
-                  <option>Easiest</option> */}
+                     <option value='[["createdAt"], ["desc"]]'>
+                        Most Recent
+                     </option>
+                     <option value='[["createdAt"], ["asc"]]'>Oldest</option>
+                     <option value='[["totalSuccessfulAttempts", "createdAt"], ["asc", "asc"]]'>
+                        Hardest
+                     </option>
+                     <option value='[["totalSuccessfulAttempts", "createdAt"], ["desc", "desc"]]'>
+                        Easiest
+                     </option>
                   </select>
                </div>
             </form>
-            {memoryCards.map((memoryCard) => {
+            {this.state.displayedMemoryCards.map((memoryCard) => {
                return (
                   <MemoryCard
                      answer={memoryCard.answer}

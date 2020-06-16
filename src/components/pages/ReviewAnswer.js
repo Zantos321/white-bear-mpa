@@ -27,8 +27,8 @@ export default function ReviewAnswer() {
             <Link to="/review-empty" className="btn btn-outline-primary mr-4">
                Needs Work
             </Link>
-            <a
-               href="review-empty.html"
+            <Link
+               to="/review-imagery"
                className="btn btn-primary"
                role="button"
             >
@@ -39,7 +39,7 @@ export default function ReviewAnswer() {
                   alt=""
                />
                Got it
-            </a>
+            </Link>
          </div>
       </AppTemplate>
    );

@@ -76,7 +76,7 @@ export default class CreateImagery extends React.Component {
                Back to answer
             </Link>
             <Link
-               to="/create-answer"
+               to="/review-imagery"
                className={classnames(
                   "btn btn-primary btn-lg float-right mb-4",
                   { disabled: this.checkHasInvalidCharCount() }

@@ -1,10 +1,11 @@
 import React from "react";
 import classnames from "classnames";
-import { Link } from "react-router-dom";
 import hash from "object-hash";
 import { v4 as getUuid } from "uuid";
+import { withRouter } from "react-router-dom";
+import { EMAIL_REGEX } from "../../utils/helpers";
 
-export default class LogIn extends React.Component {
+class LogIn extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
@@ -26,14 +27,13 @@ export default class LogIn extends React.Component {
       //Email Cannot be blank
       //must have valid email regex
       const lowerCasedEmailInput = emailInput.toLowerCase();
-      // eslint-disable-next-line
-      const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
       if (emailInput === "")
          this.setState({
             emailError: "Please enter your email address.",
             hasEmailError: true,
          });
-      else if (emailRegex.test(lowerCasedEmailInput) === false) {
+      else if (EMAIL_REGEX.test(lowerCasedEmailInput) === false) {
          this.setState({
             emailError: "Not a valid email address.",
             hasEmailError: true,
@@ -43,9 +43,7 @@ export default class LogIn extends React.Component {
       }
    }
 
-   async setPasswordState(passwordInput, emailInput) {
-      // can't be blank
-
+   async setPasswordState(passwordInput) {
       console.log(passwordInput);
       if (passwordInput === "") {
          this.setState({
@@ -57,7 +55,7 @@ export default class LogIn extends React.Component {
       }
    }
 
-   async validateAndCreateUser() {
+   async loginAndValidateUser() {
       const emailInput = document.getElementById("login-email-input").value;
       const passwordInput = document.getElementById("login-password-input")
          .value;
@@ -74,6 +72,7 @@ export default class LogIn extends React.Component {
             createdAt: Date.now(),
          };
          console.log(user);
+         this.props.history.push("/create-answer");
       }
    }
 
@@ -103,7 +102,7 @@ export default class LogIn extends React.Component {
 
                         {this.state.hasEmailError && (
                            <div
-                              className="alert alert-danger d-none"
+                              className="alert alert-danger"
                               role="alert"
                               id="login-email-alert"
                            >
@@ -126,7 +125,7 @@ export default class LogIn extends React.Component {
 
                         {this.state.hasPasswordError && (
                            <div
-                              className="alert alert-danger d-none"
+                              className="alert alert-danger"
                               role="alert"
                               id="login-password-alert"
                            >
@@ -134,16 +133,16 @@ export default class LogIn extends React.Component {
                            </div>
                         )}
                      </div>
-                     <Link
+                     <button
                         to="/create-answer"
                         id="#loginVerify"
                         className="btn btn-success btn-lg btn-landing float-right"
                         onClick={() => {
-                           this.validateAndCreateUser();
+                           this.loginAndValidateUser();
                         }}
                      >
                         Log in
-                     </Link>
+                     </button>
                   </div>
                </div>
             </div>
@@ -151,3 +150,5 @@ export default class LogIn extends React.Component {
       );
    }
 }
+
+export default withRouter(LogIn);

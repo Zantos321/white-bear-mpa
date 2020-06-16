@@ -15,7 +15,7 @@ export default class Edit extends React.Component {
       this.state = {
          answerText: memoryCard.answer,
          imageryText: memoryCard.imagery,
-         isDeleteButtonDisabled: true,
+         checked: false,
       };
    }
 
@@ -42,7 +42,7 @@ export default class Edit extends React.Component {
 
    showDeleteButton() {
       this.setState({
-         isDeleteButtonDisabled: false,
+         checked: !this.state.checked,
       });
    }
 
@@ -161,6 +161,7 @@ export default class Edit extends React.Component {
                      type="checkbox"
                      className="custom-control-input delete-verify"
                      id="delete-check"
+                     checked={this.state.checked}
                      onClick={() => {
                         this.showDeleteButton();
                      }}
@@ -174,15 +175,15 @@ export default class Edit extends React.Component {
                </div>
             </div>
             <div className="row col mb-4">
-               <Link
-                  to="/all-cards"
-                  className={classnames("btn btn-large btn-outline-danger", {
-                     invisible: this.state.isDeleteButtonDisabled,
-                  })}
-                  id="card-delete"
-               >
-                  Delete this card
-               </Link>
+               {this.state.checked && (
+                  <Link
+                     to="/all-cards"
+                     className="btn btn-large btn-outline-danger"
+                     id="card-delete"
+                  >
+                     Delete this card
+                  </Link>
+               )}
             </div>
          </AppTemplate>
       );
