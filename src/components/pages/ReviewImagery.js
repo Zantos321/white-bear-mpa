@@ -21,6 +21,12 @@ class ReviewImagery extends React.Component {
          .finally(function () {
             // always executed
          });
+
+      /*
+         queuedCards: [],
+         indexOfCurrentCard: 0,
+         user: {},
+      */
    }
 
    render() {
