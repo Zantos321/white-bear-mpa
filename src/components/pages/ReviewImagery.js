@@ -9,7 +9,9 @@ class ReviewImagery extends React.Component {
    constructor(props) {
       super(props);
       axios
-         .get("https://run.mocky.io/v3/41185b3f-1ca6-44c0-8338-f3bbf38058ca")
+         .get(
+            "https://raw.githubusercontent.com/Zantos321/white-bear-mpa/master/src/mock-data/memory-cards.json"
+         )
          .then(function (res) {
             // handle success
             console.log(res);
@@ -21,9 +23,6 @@ class ReviewImagery extends React.Component {
          .catch(function (error) {
             // handle error
             console.log(error);
-         })
-         .finally(function () {
-            // always executed
          });
 
       /*
@@ -34,7 +33,7 @@ class ReviewImagery extends React.Component {
    }
 
    render() {
-      const memoryCard = this.props.queuedCards[this.props.indexOfCurrentCard];
+      const memoryCard = this.props.queue[this.props.queue.index];
       return (
          <AppTemplate>
             <div className="mb-5"></div>
@@ -64,8 +63,7 @@ class ReviewImagery extends React.Component {
 
 function mapStateToProps(state) {
    return {
-      queuedCards: state.queuedCards,
-      indexOfCurrentCard: state.indexOfCurrentCard,
+      queue: state.queue,
    };
 }
 
