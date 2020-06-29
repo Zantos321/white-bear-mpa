@@ -5,6 +5,8 @@ import { v4 as getUuid } from "uuid";
 import { withRouter } from "react-router-dom";
 import { EMAIL_REGEX } from "../../utils/helpers";
 import axios from "axios";
+import actions from "../../store/actions";
+import { connect } from "react-redux";
 
 class LogIn extends React.Component {
    constructor(props) {
@@ -18,22 +20,6 @@ class LogIn extends React.Component {
       };
    }
 
-   componentDidMount() {
-      axios
-         .get(
-            "https://raw.githubusercontent.com/Zantos321/white-bear-mpa/master/src/mock-data/memory-cards.json"
-         )
-         .then((res) => {
-            // handle success
-            const currentUser = res.data;
-            console.log(currentUser);
-         })
-         .catch((error) => {
-            // handle error
-            console.log(error);
-         });
-   }
-
    showInputs() {
       this.setState({
          isDisplayingInputs: true,
@@ -41,8 +27,6 @@ class LogIn extends React.Component {
    }
 
    async setEmailState(emailInput) {
-      //Email Cannot be blank
-      //must have valid email regex
       const lowerCasedEmailInput = emailInput.toLowerCase();
 
       if (emailInput === "")
@@ -88,7 +72,25 @@ class LogIn extends React.Component {
             password: hash(passwordInput),
             createdAt: Date.now(),
          };
-         console.log(user);
+         console.log("Created user object for POST", user);
+         // Mimic API response
+         axios
+            .get(
+               "https://raw.githubusercontent.com/Zantos321/white-bear-mpa/master/src/mock-data/user.json"
+            )
+            .then((res) => {
+               // handle success
+               const currentUser = res.data;
+               console.log(currentUser);
+               this.props.dispatch({
+                  type: actions.UPDATE_CURRENT_USER,
+                  payload: res.data,
+               });
+            })
+            .catch((error) => {
+               // handle error
+               console.log(error);
+            });
          this.props.history.push("/create-answer");
       }
    }
@@ -167,5 +169,8 @@ class LogIn extends React.Component {
       );
    }
 }
+function mapStateToProps(state) {
+   return {};
+}
 
-export default withRouter(LogIn);
+export default withRouter(connect(mapStateToProps)(LogIn));
